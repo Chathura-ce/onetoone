@@ -24,3 +24,18 @@ Route::get('/update',function (){
 
 });
 
+//one to one read data
+Route::get('/read',function (){
+    $user = User::findOrFail(1);
+    echo $user->address->name;
+
+});
+
+//one to one delete data
+Route::get('/delete',function (){
+    $user = User::findOrFail(1);
+    $user->address()->delete();
+    return "done";
+});
+
+
