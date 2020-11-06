@@ -15,5 +15,12 @@ Route::get('/insert',function (){
     $user->address()->save($address);
 });
 
+//one to one update data
+Route::get('/update',function (){
+    $address = Address::whereUserId(1)->first();
+    $address->name = "Updated new address";
 
+    $address->save();
+
+});
 
